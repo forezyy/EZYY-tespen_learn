@@ -1,4 +1,4 @@
-import 'package:ezy_tespen_learn/screens/home_screen.dart';
+import 'package:ezy_tespen_learn/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
