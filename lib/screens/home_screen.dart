@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
+              print(state.email);
               return Text("Login email: ${state.email}");
             },
           ),
