@@ -2,7 +2,10 @@ import 'package:ezy_tespen_learn/bloc/authentication_bloc.dart';
 import 'package:ezy_tespen_learn/screens/bloc_state_screen.dart';
 import 'package:ezy_tespen_learn/screens/get_storage_screen.dart';
 import 'package:ezy_tespen_learn/screens/home_screen.dart';
+import 'package:ezy_tespen_learn/screens/home_screen_with_api.dart';
 import 'package:ezy_tespen_learn/screens/login_screen.dart';
+import 'package:ezy_tespen_learn/screens/login_screen_with_api.dart';
+import 'package:ezy_tespen_learn/screens/rest_api_screen.dart';
 import 'package:ezy_tespen_learn/screens/splash_screen.dart';
 import 'package:ezy_tespen_learn/screens/statefull_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +26,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return loginScreen();
+    return loginScreenWithApi();
+  }
+
+  restApiScreen() {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const RestApiScreen(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 
   getStorageScreen() {
@@ -52,6 +66,29 @@ class MyApp extends StatelessWidget {
             return GetStorage().hasData('email')
                 ? const HomeScreen()
                 : const LoginScreen();
+          },
+        ),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  }
+
+  loginScreenWithApi() {
+    return BlocProvider(
+      create: (context) => AuthenticationBloc(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Builder(
+          builder: (context) {
+            context.read<AuthenticationBloc>().add(CheckStateEvent());
+            // context.read<AuthenticationBloc>().add(LogoutEvent());
+
+            return GetStorage().hasData('email')
+                ? HomeScreenWithApi()
+                : LoginScreenWithApi();
           },
         ),
         debugShowCheckedModeBanner: false,
