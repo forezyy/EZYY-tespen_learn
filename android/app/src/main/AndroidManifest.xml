@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ezy_tespen_learn">
+
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+
    <application
         android:label="ezy_tespen_learn"
         android:name="${applicationName}"

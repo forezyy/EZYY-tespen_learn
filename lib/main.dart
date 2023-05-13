@@ -1,4 +1,5 @@
 import 'package:ezy_tespen_learn/bloc/authentication_bloc.dart';
+import 'package:ezy_tespen_learn/screens/biometric_screen.dart';
 import 'package:ezy_tespen_learn/screens/bloc_state_screen.dart';
 import 'package:ezy_tespen_learn/screens/get_storage_screen.dart';
 import 'package:ezy_tespen_learn/screens/home_screen.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return loginScreenWithApi();
+    return biometricScreen();
   }
 
   restApiScreen() {
@@ -135,6 +136,17 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const StatefulScreen(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+
+  biometricScreen() {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: BiometricScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
