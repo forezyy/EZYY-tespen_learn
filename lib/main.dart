@@ -7,9 +7,10 @@ import 'package:ezy_tespen_learn/screens/home_screen_with_api.dart';
 import 'package:ezy_tespen_learn/screens/location_screen.dart';
 import 'package:ezy_tespen_learn/screens/login_screen.dart';
 import 'package:ezy_tespen_learn/screens/login_screen_with_api.dart';
+import 'package:ezy_tespen_learn/screens/notification_screen.dart';
 import 'package:ezy_tespen_learn/screens/rest_api_screen.dart';
-import 'package:ezy_tespen_learn/screens/splash_screen.dart';
 import 'package:ezy_tespen_learn/screens/statefull_screen.dart';
+import 'package:ezy_tespen_learn/services/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_storage/get_storage.dart';
@@ -18,6 +19,11 @@ import 'bloc/counter_bloc.dart';
 
 void main() async {
   await GetStorage.init();
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await NotificationService.init();
+  await NotificationService.loadAllNotification();
 
   runApp(const MyApp());
 }
@@ -28,7 +34,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return locationScreen();
+    return notificationScreen();
   }
 
   restApiScreen() {
@@ -159,6 +165,17 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LocationScreen(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+
+  notificationScreen() {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const NotificationScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

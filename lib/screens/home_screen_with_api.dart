@@ -1,9 +1,5 @@
 import 'package:ezy_tespen_learn/repositories/card_repository.dart';
-import 'package:ezy_tespen_learn/screens/login_screen_with_api.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../bloc/authentication_bloc.dart';
 import '../models/card_model.dart';
 
 class HomeScreenWithApi extends StatelessWidget {
