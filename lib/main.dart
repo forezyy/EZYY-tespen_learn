@@ -4,6 +4,7 @@ import 'package:ezy_tespen_learn/screens/bloc_state_screen.dart';
 import 'package:ezy_tespen_learn/screens/get_storage_screen.dart';
 import 'package:ezy_tespen_learn/screens/home_screen.dart';
 import 'package:ezy_tespen_learn/screens/home_screen_with_api.dart';
+import 'package:ezy_tespen_learn/screens/location_screen.dart';
 import 'package:ezy_tespen_learn/screens/login_screen.dart';
 import 'package:ezy_tespen_learn/screens/login_screen_with_api.dart';
 import 'package:ezy_tespen_learn/screens/rest_api_screen.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return biometricScreen();
+    return locationScreen();
   }
 
   restApiScreen() {
@@ -147,6 +148,17 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: BiometricScreen(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+
+  locationScreen() {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: LocationScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
